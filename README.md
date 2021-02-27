@@ -9,7 +9,6 @@ import { watchEffect } from 'vue'
 watchEffect(onInvalidate => {
   onInvalidate(() => {})
 })
-</script>
 ```
 
 ```sh
