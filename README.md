@@ -1,3 +1,17 @@
+Runner accessed in onInvalidate callback: https://github.com/vuejs/vue-next/blob/ec8fd10cec61c33c7c8056413a1c609ac90e1215/packages/runtime-core/src/apiWatch.ts#L227
+Runner defined lower down: https://github.com/vuejs/vue-next/blob/ec8fd10cec61c33c7c8056413a1c609ac90e1215/packages/runtime-core/src/apiWatch.ts#L296
+
+**SSR probably breaks some implicit contract?**
+
+```js
+/* <script setup> */
+import { watchEffect } from 'vue'
+watchEffect(onInvalidate => {
+  onInvalidate(() => {})
+})
+</script>
+```
+
 ```sh
 % yarn dev
 yarn run v1.22.5
